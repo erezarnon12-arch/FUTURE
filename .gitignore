@@ -1,0 +1,27 @@
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Node
+node_modules/
+.next/
+npm-debug.log*
+
+# Python
+__pycache__/
+*.pyc
+venv/
+*.egg-info/
+
+# OS
+.DS_Store
+
+# Build
+dist/
+build/
+future-app/frontend/node_modules/
+future-app/frontend/node_modules/
+future-app/frontend/node_modules/
+future-app/frontend/node_modules/
+.env*
