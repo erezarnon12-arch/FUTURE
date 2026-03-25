@@ -2,6 +2,7 @@
 .env
 .env.local
 .env.*.local
+.env*
 
 # Node
 node_modules/
@@ -20,8 +21,3 @@ venv/
 # Build
 dist/
 build/
-future-app/frontend/node_modules/
-future-app/frontend/node_modules/
-future-app/frontend/node_modules/
-future-app/frontend/node_modules/
-.env*
