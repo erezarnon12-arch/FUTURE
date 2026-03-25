@@ -70,6 +70,11 @@ def startup():
 
 # ── System endpoints ──────────────────────────────────────────────────────────
 
+@app.get("/", tags=["system"])
+def root():
+    return {"message": "FUTURE API is running 🚀", "version": "2.0.0", "docs": "/docs"}
+
+
 @app.get("/health", tags=["system"])
 def health():
     return {"status": "ok", "service": "FUTURE API", "version": "2.0.0"}
