@@ -1,20 +1,14 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import { NextRequest, NextResponse } from "next/server";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: NextRequest) {
   try {
     const { name, age, phone } = await req.json();
 
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_APP_PASSWORD,
-      },
-    });
-
-    await transporter.sendMail({
-      from: `"FUTURE App" <${process.env.GMAIL_USER}>`,
+    await resend.emails.send({
+      from: "FUTURE App <onboarding@resend.dev>",
       to: "erezarnon12@gmail.com",
       subject: `פנייה חדשה מ-FUTURE — ${name}`,
       html: `
