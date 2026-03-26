@@ -1,4 +1,4 @@
-FROM node:20-slim AS builder
+FROM node:20-slim
 
 WORKDIR /app
 
@@ -7,18 +7,10 @@ RUN npm install
 
 COPY . .
 
+ENV NODE_OPTIONS="--max-old-space-size=400"
 RUN npm run build
-
-FROM node:20-slim AS runner
-
-WORKDIR /app
-
-ENV NODE_ENV=production
-ENV PORT=3000
-
-COPY --from=builder /app/.next/standalone ./
-COPY --from=builder /app/.next/static ./.next/static
 
 EXPOSE 3000
 
-CMD ["node", "server.js"]
+ENV NODE_ENV=production
+CMD ["npm", "start"]
