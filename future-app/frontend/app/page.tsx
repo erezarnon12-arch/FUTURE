@@ -27,11 +27,15 @@ export default function HomePage() {
     e.preventDefault();
     setSending(true);
     try {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 8000);
       await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(contact),
+        signal: controller.signal,
       });
+      clearTimeout(timeout);
     } catch {}
     setSubmitted(true);
     setSending(false);
