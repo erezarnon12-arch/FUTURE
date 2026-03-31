@@ -18,6 +18,11 @@ const toolItems = [
   { href: "/search", label: "חיפוש FUTURE", icon: "✦" },
 ];
 
+const planItems = [
+  { href: "/plans/managed", label: "אני רוצה שידאגו לי", icon: "🤝" },
+  { href: "/plans/learn", label: "אני רוצה להבין", icon: "🎓" },
+];
+
 const clientItems = [
   { href: "/my-clients", label: "תיקי לקוחות", icon: "👤" },
 ];
@@ -123,6 +128,14 @@ export default function MainSidebar() {
             <div className="px-3 pb-1 text-xs text-text-muted font-medium tracking-wider">למד</div>
             <div className="space-y-1">
               {learnItems.map((item) => <NavBtn key={item.href} item={item} pathname={pathname} router={router} close={() => setOpen(false)} />)}
+            </div>
+          </div>
+
+          {/* מסלולים */}
+          <div>
+            <div className="px-3 pb-1 text-xs text-text-muted font-medium tracking-wider">מסלולים</div>
+            <div className="space-y-1">
+              {planItems.map((item) => <NavBtn key={item.href} item={item} pathname={pathname} router={router} close={() => setOpen(false)} />)}
             </div>
           </div>
 
