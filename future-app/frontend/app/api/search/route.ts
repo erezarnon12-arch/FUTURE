@@ -1,6 +1,8 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { NextRequest } from "next/server";
 
+export const dynamic = "force-dynamic";
+
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
 const SYSTEM_PROMPT = `אתה מומחה פיננסי של FUTURE — חברה לחינוך פיננסי מבוסס שלוש טבעות: טבעת העתיד (פנסיה, גמל, קרן השתלמות), טבעת הביטחון (קרן חירום, ביטוח, קרן כספית), וטבעת הצמיחה (שוק ההון, נדל"ן, השקעות אלטרנטיביות).
