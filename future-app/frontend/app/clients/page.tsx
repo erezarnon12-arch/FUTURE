@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { getClients } from "@/lib/api";
 import type { Client } from "@/types";
 import { useRouter } from "next/navigation";
+import MainSidebar from "@/components/ui/MainSidebar";
 
 const HEBREW_NAMES: Record<string, string> = {
   "David Cohen":   "דוד כהן",
@@ -82,7 +83,9 @@ export default function ClientsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-surface">
+    <div className="flex min-h-screen bg-surface">
+      <MainSidebar />
+      <div className="flex-1 md:mr-60 overflow-x-hidden">
       {/* Header */}
       <div className="border-b border-white/5 px-8 py-5 flex items-center justify-between">
         <h1 className="text-xl font-bold text-white">תיקים לדוגמא</h1>
@@ -110,6 +113,7 @@ export default function ClientsPage() {
             ))}
           </div>
         )}
+      </div>
       </div>
     </div>
   );
