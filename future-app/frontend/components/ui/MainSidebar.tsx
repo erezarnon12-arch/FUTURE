@@ -7,15 +7,15 @@ const navItems = [
   { href: "/", label: "דף ראשי", icon: "⬡" },
 ];
 
-const learnItems = [
-  { href: "/learn/security", label: "טבעת הביטחון", icon: "🛡" },
+const ringItems = [
   { href: "/learn/future", label: "טבעת העתיד", icon: "🏛" },
+  { href: "/learn/security", label: "טבעת הביטחון", icon: "🛡" },
   { href: "/learn/growth", label: "טבעת הצמיחה", icon: "🚀" },
-  { href: "/learn/glossary", label: "מילון מושגים", icon: "📖" },
 ];
 
-const toolItems = [
+const learnItems = [
   { href: "/search", label: "חיפוש FUTURE", icon: "✦" },
+  { href: "/learn/glossary", label: "מילון מושגים", icon: "📖" },
 ];
 
 const planItems = [
@@ -109,10 +109,11 @@ export default function MainSidebar() {
             {navItems.map((item) => <NavBtn key={item.href} item={item} pathname={pathname} router={router} close={() => setOpen(false)} />)}
           </div>
 
-          {/* כלים */}
+          {/* הטבעות */}
           <div>
-            <div className="border-t border-white/5 pt-3 space-y-1">
-              {toolItems.map((item) => <NavBtn key={item.href} item={item} pathname={pathname} router={router} close={() => setOpen(false)} />)}
+            <div className="px-3 pb-1 text-xs text-text-muted font-medium tracking-wider">הטבעות</div>
+            <div className="space-y-1">
+              {ringItems.map((item) => <NavBtn key={item.href} item={item} pathname={pathname} router={router} close={() => setOpen(false)} />)}
             </div>
           </div>
 
