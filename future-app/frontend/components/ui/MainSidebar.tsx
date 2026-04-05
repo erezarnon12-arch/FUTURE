@@ -8,8 +8,8 @@ const navItems = [
 ];
 
 const ringItems = [
-  { href: "/learn/future", label: "טבעת העתיד", icon: "🏛" },
   { href: "/learn/security", label: "טבעת הביטחון", icon: "🛡" },
+  { href: "/learn/future", label: "טבעת העתיד", icon: "🏛" },
   { href: "/learn/growth", label: "טבעת הצמיחה", icon: "🚀" },
 ];
 
