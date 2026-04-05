@@ -23,13 +23,6 @@ const planItems = [
   { href: "/plans/learn", label: "אני רוצה להבין", icon: "🎓" },
 ];
 
-const clientItems = [
-  { href: "/my-clients", label: "תיקי לקוחות", icon: "👤" },
-];
-
-const demoItems = [
-  { href: "/clients", label: "תיקים לדוגמא", icon: "◈" },
-];
 
 function NavBtn({ item, pathname, router, close }: {
   item: { href: string; label: string; icon: string };
@@ -139,23 +132,6 @@ export default function MainSidebar() {
             </div>
           </div>
 
-          {/* תיקים לדוגמא */}
-          <div>
-            <div className="px-3 pb-1 text-xs text-text-muted font-medium tracking-wider">דמו</div>
-            <div className="space-y-1">
-              {demoItems.map((item) => <NavBtn key={item.href} item={item} pathname={pathname} router={router} close={() => setOpen(false)} />)}
-            </div>
-          </div>
-
-          {/* תיקי לקוחות — תחתון */}
-          <div className="mt-auto">
-            <div className="border-t border-white/5 pt-3">
-              <div className="px-3 pb-1 text-xs text-text-muted font-medium tracking-wider">תיקי לקוחות</div>
-              <div className="space-y-1">
-                {clientItems.map((item) => <NavBtn key={item.href} item={item} pathname={pathname} router={router} close={() => setOpen(false)} />)}
-              </div>
-            </div>
-          </div>
 
         </nav>
       </div>

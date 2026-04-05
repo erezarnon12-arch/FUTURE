@@ -98,6 +98,40 @@ export default function HomePage() {
 </a>
 </div>
 
+{/* PLANS */}
+
+<div className="max-w-4xl mx-auto px-10 mb-16">
+  <div className="text-center mb-8">
+    <p className="text-indigo-400 text-xs font-medium tracking-widest uppercase mb-2">איך אנחנו עובדים?</p>
+    <h2 className="text-white font-bold text-3xl">בחר את המסלול שמתאים לך</h2>
+  </div>
+  <div className="grid md:grid-cols-2 gap-6">
+
+    <a href="/plans/managed" className="group block bg-surface-2 rounded-2xl p-8 border border-indigo-500/20 hover:border-indigo-500/60 hover:shadow-lg hover:shadow-indigo-500/10 transition-all text-right">
+      <div className="w-12 h-12 rounded-xl bg-indigo-500/15 flex items-center justify-center text-2xl mb-5">🤝</div>
+      <div className="text-indigo-300 font-bold text-lg mb-2">אני רוצה שידאגו לי</div>
+      <div className="text-text-secondary text-sm leading-relaxed mb-5">
+        לא מעניין אותך הידע — אתה רוצה שהדברים יסתדרו. אנחנו לוקחים את הכל מקצה לקצה.
+      </div>
+      <div className="text-indigo-400 text-xs font-medium group-hover:translate-x-[-4px] transition-transform inline-block">
+        קרא עוד ←
+      </div>
+    </a>
+
+    <a href="/plans/learn" className="group block bg-surface-2 rounded-2xl p-8 border border-emerald-500/20 hover:border-emerald-500/60 hover:shadow-lg hover:shadow-emerald-500/10 transition-all text-right">
+      <div className="w-12 h-12 rounded-xl bg-emerald-500/15 flex items-center justify-center text-2xl mb-5">🎓</div>
+      <div className="text-emerald-300 font-bold text-lg mb-2">אני רוצה להבין</div>
+      <div className="text-text-secondary text-sm leading-relaxed mb-5">
+        קורס דיגיטלי על מאקרו כלכלה, ניהול פיננסי והמוצרים בשוק — בשפה שכולם מבינים.
+      </div>
+      <div className="text-emerald-400 text-xs font-medium group-hover:translate-x-[-4px] transition-transform inline-block">
+        קרא עוד ←
+      </div>
+    </a>
+
+  </div>
+</div>
+
 {/* STATS */}
 
 <div className="max-w-5xl mx-auto px-10 mb-16">
