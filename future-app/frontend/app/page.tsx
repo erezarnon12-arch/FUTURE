@@ -16,6 +16,14 @@ export default function HomePage() {
 
   const [submitted,setSubmitted] = useState(false);
   const [sending,setSending] = useState(false);
+  const [reviewIndex, setReviewIndex] = useState(0);
+
+  const reviews = [
+    { text: "לא ידעתי שכל כך הרבה כסף הולך לאיבוד בדמי ניהול גבוהים. אחרי פגישה אחת שיניתי מסלול וחסכתי אלפי שקלים בשנה.", name: "רונית, 38" },
+    { text: "סוף סוף הבנתי לאן הכסף שלי הולך. קיבלתי תמונה ברורה ותכנית מסודרת — בלי עמלות מיותרות ובלי ז'רגון.", name: "דני, 42" },
+    { text: "פנסיה, חסכונות — הכל במקום אחד. הרגשתי שמישהו באמת מסתכל על האינטרס שלי.", name: "מיכל, 45" },
+    { text: "שירות מקצועי, ברור ואנושי. לא הרגשתי שמוכרים לי — הרגשתי שעוזרים לי.", name: "אורי, 51" },
+  ];
 
   useEffect(()=>{
     getClients()
@@ -280,35 +288,32 @@ export default function HomePage() {
 
 {/* REVIEWS */}
 
-<div className="max-w-5xl mx-auto px-10 mb-16">
-<h2 className="text-white font-bold text-2xl text-right mb-6">מה אומרים הלקוחות שלנו</h2>
-<div className="grid md:grid-cols-2 gap-5 text-right text-sm">
-
-<div className="bg-surface-2 p-6 rounded-2xl border border-white/5">
-<div className="text-yellow-400 text-xs mb-3 tracking-widest">★★★★★</div>
-<p className="text-text-secondary leading-relaxed">"לא ידעתי שכל כך הרבה כסף הולך לאיבוד בדמי ניהול גבוהים. אחרי פגישה אחת שיניתי מסלול וחסכתי אלפי שקלים בשנה."</p>
-<div className="text-text-muted text-xs mt-3">— רונית, 38</div>
-</div>
-
-<div className="bg-surface-2 p-6 rounded-2xl border border-white/5">
-<div className="text-yellow-400 text-xs mb-3 tracking-widest">★★★★★</div>
-<p className="text-text-secondary leading-relaxed">"סוף סוף הבנתי לאן הכסף שלי הולך. קיבלתי תמונה ברורה ותכנית מסודרת — בלי עמלות מיותרות ובלי ז'רגון."</p>
-<div className="text-text-muted text-xs mt-3">— דני, 42</div>
-</div>
-
-<div className="bg-surface-2 p-6 rounded-2xl border border-white/5">
-<div className="text-yellow-400 text-xs mb-3 tracking-widest">★★★★★</div>
-<p className="text-text-secondary leading-relaxed">"פנסיה, ביטוחים, חסכונות — הכל במקום אחד. הרגשתי שמישהו באמת מסתכל על האינטרס שלי."</p>
-<div className="text-text-muted text-xs mt-3">— מיכל, 45</div>
-</div>
-
-<div className="bg-surface-2 p-6 rounded-2xl border border-white/5">
-<div className="text-yellow-400 text-xs mb-3 tracking-widest">★★★★★</div>
-<p className="text-text-secondary leading-relaxed">"שירות מקצועי, ברור ואנושי. לא הרגשתי שמוכרים לי — הרגשתי שעוזרים לי."</p>
-<div className="text-text-muted text-xs mt-3">— אורי, 51</div>
-</div>
-
-</div>
+<div className="max-w-2xl mx-auto px-10 mb-16 text-right">
+  <h2 className="text-white font-bold text-2xl mb-8 text-center">מה אומרים הלקוחות שלנו</h2>
+  <div className="bg-surface-2 rounded-2xl border border-white/5 p-8">
+    <div className="text-yellow-400 text-sm mb-4 tracking-widest">★★★★★</div>
+    <p className="text-text-secondary leading-relaxed text-base mb-6">"{reviews[reviewIndex].text}"</p>
+    <div className="text-text-muted text-sm">— {reviews[reviewIndex].name}</div>
+  </div>
+  <div className="flex items-center justify-center gap-4 mt-6">
+    <button
+      onClick={() => setReviewIndex((reviewIndex - 1 + reviews.length) % reviews.length)}
+      className="w-9 h-9 rounded-full border border-white/10 text-text-secondary hover:text-white hover:border-white/30 transition-all flex items-center justify-center"
+    >→</button>
+    <div className="flex gap-2">
+      {reviews.map((_, i) => (
+        <button
+          key={i}
+          onClick={() => setReviewIndex(i)}
+          className={`w-2 h-2 rounded-full transition-all ${i === reviewIndex ? "bg-indigo-400 w-4" : "bg-white/20"}`}
+        />
+      ))}
+    </div>
+    <button
+      onClick={() => setReviewIndex((reviewIndex + 1) % reviews.length)}
+      className="w-9 h-9 rounded-full border border-white/10 text-text-secondary hover:text-white hover:border-white/30 transition-all flex items-center justify-center"
+    >←</button>
+  </div>
 </div>
 
 {/* CONTACT */}
