@@ -16,6 +16,7 @@ const ringItems = [
 const learnItems = [
   { href: "/search", label: "חיפוש FUTURE", icon: "✦" },
   { href: "/learn/glossary", label: "מילון מושגים", icon: "📖" },
+  { href: "/learn/calculator", label: "מחשבון ריבית דריבית", icon: "🧮" },
 ];
 
 const planItems = [
