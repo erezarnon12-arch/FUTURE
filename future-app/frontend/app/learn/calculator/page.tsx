@@ -153,16 +153,6 @@ export default function CalculatorPage() {
 
         <div className="max-w-5xl mx-auto px-6 py-8">
 
-          {/* DISCLAIMER */}
-          <div className="mb-8 bg-white/3 border border-white/8 rounded-xl px-5 py-3 flex items-start gap-3">
-            <span className="text-text-muted text-base mt-0.5 flex-shrink-0">ℹ️</span>
-            <p className="text-text-muted text-xs leading-relaxed">
-              <strong className="text-text-secondary">שים לב:</strong> נתוני התשואה המוצגים מבוססים על ביצועים היסטוריים בלבד.
-              הם אינם מהווים הבטחה, תחזית או ייעוץ השקעות לגבי ביצועים עתידיים.
-              ההיסטוריה היא המידע היחיד שיש לנו ללמוד ממנו — אך השוק אינו חייב לחזור על עצמו.
-            </p>
-          </div>
-
           {/* STEP 1: Company */}
           <div className="mb-8">
             <h2 className="text-white font-semibold mb-3 flex items-center gap-2">
@@ -408,6 +398,16 @@ export default function CalculatorPage() {
                 </p>
               </div>
             )}
+          </div>
+
+          {/* DISCLAIMER */}
+          <div className="mt-10 border-t border-white/5 pt-6 flex items-start gap-3">
+            <span className="text-text-muted text-base flex-shrink-0">ℹ️</span>
+            <p className="text-text-muted text-xs leading-relaxed">
+              <strong className="text-text-secondary">שים לב:</strong> נתוני התשואה המוצגים מבוססים על ביצועים היסטוריים בלבד.
+              הם אינם מהווים הבטחה, תחזית או ייעוץ השקעות לגבי ביצועים עתידיים.
+              ההיסטוריה היא המידע היחיד שיש לנו ללמוד ממנו — אך השוק אינו חייב לחזור על עצמו.
+            </p>
           </div>
 
         </div>
