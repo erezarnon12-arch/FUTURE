@@ -142,7 +142,7 @@ export default function CalculatorPage() {
   return (
     <div className="flex min-h-screen bg-surface">
       <MainSidebar />
-      <main className="flex-1 md:mr-60 overflow-x-hidden">
+      <main className="flex-1 md:mr-60 overflow-x-hidden" dir="rtl">
 
         {/* HEADER */}
         <div className="border-b border-white/5 px-10 py-5">
@@ -155,11 +155,11 @@ export default function CalculatorPage() {
 
           {/* STEP 1: Company */}
           <div className="mb-8">
-            <h2 className="text-white font-semibold mb-3 flex items-center gap-2 justify-end">
-              בחר חברת פנסיה
+            <h2 className="text-white font-semibold mb-3 flex items-center gap-2">
               <span className="bg-indigo-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">1</span>
+              בחר חברת פנסיה
             </h2>
-            <div className="flex flex-wrap gap-2 justify-end">
+            <div className="flex flex-wrap gap-2">
               {COMPANIES.map((c) => (
                 <button
                   key={c.id}
@@ -178,9 +178,9 @@ export default function CalculatorPage() {
 
           {/* STEP 2: Track */}
           <div className="mb-8">
-            <h2 className="text-white font-semibold mb-3 flex items-center gap-2 justify-end">
-              בחר מסלול השקעה
+            <h2 className="text-white font-semibold mb-3 flex items-center gap-2">
               <span className="bg-indigo-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">2</span>
+              בחר מסלול השקעה
             </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {company.tracks.map((t) => {
@@ -213,72 +213,11 @@ export default function CalculatorPage() {
 
           <div className="grid lg:grid-cols-2 gap-8">
 
-            {/* STEP 3: Parameters */}
+            {/* RESULTS — first in DOM = right column in RTL */}
             <div className="space-y-4">
-              <h2 className="text-white font-semibold flex items-center gap-2 justify-end">
-                פרמטרי חיסכון
-                <span className="bg-indigo-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">3</span>
-              </h2>
-
-              <div className="bg-surface-2 rounded-2xl border border-white/5 p-6 space-y-5">
-
-                <div className="text-right">
-                  <label className="text-text-secondary text-sm block mb-2">הפקדה חודשית</label>
-                  <div className="flex items-center gap-3">
-                    <input type="range" min={500} max={15000} step={100} value={monthly}
-                      onChange={(e) => setMonthly(+e.target.value)} className="flex-1 accent-indigo-500" />
-                    <span className="text-white font-bold text-sm w-24 text-left">₪{monthly.toLocaleString()}</span>
-                  </div>
-                </div>
-
-                <div className="text-right">
-                  <label className="text-text-secondary text-sm block mb-2">תקופת חיסכון</label>
-                  <div className="flex items-center gap-3">
-                    <input type="range" min={5} max={40} step={1} value={years}
-                      onChange={(e) => setYears(+e.target.value)} className="flex-1 accent-indigo-500" />
-                    <span className="text-white font-bold text-sm w-24 text-left">{years} שנים</span>
-                  </div>
-                </div>
-
-                <div className="text-right">
-                  <label className="text-text-secondary text-sm block mb-2">תשואה שנתית משוערת</label>
-                  <div className="flex items-center gap-3">
-                    <input type="range" min={1} max={15} step={0.5} value={returnRate}
-                      onChange={(e) => setReturnRate(+e.target.value)} className="flex-1 accent-emerald-500" />
-                    <span className="text-white font-bold text-sm w-24 text-left">{returnRate}%</span>
-                  </div>
-                </div>
-
-                {/* Fee breakdown for selected track */}
-                <div className="bg-amber-500/5 border border-amber-500/20 rounded-xl p-4 text-right">
-                  <p className="text-amber-400 text-xs font-semibold mb-2">דמי ניהול בפועל — {track.name}</p>
-                  <div className="grid grid-cols-3 gap-2 text-xs mb-2">
-                    <div>
-                      <span className="text-text-muted block mb-0.5">מהפקדה</span>
-                      <span className="text-amber-300 font-bold">{track.feeDeposit}%</span>
-                    </div>
-                    <div>
-                      <span className="text-text-muted block mb-0.5">מהצבירה</span>
-                      <span className="text-amber-300 font-bold">{track.feeBalance}%</span>
-                    </div>
-                    <div>
-                      <span className="text-text-muted block mb-0.5">הוצ׳ ישירות</span>
-                      <span className="text-amber-300 font-bold">{track.directExpenses}%</span>
-                    </div>
-                  </div>
-                  <div className="pt-2 border-t border-amber-500/20 flex justify-between items-center">
-                    <span className="text-amber-400 font-bold text-sm">{totalFeeBalance.toFixed(2)}% סה"כ מהצבירה</span>
-                    <span className="text-text-muted text-xs">עלות שנתית</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* RESULTS */}
-            <div className="space-y-4">
-              <h2 className="text-white font-semibold flex items-center gap-2 justify-end">
-                תוצאות
+              <h2 className="text-white font-semibold flex items-center gap-2">
                 <span className="bg-emerald-500 text-white text-xs px-1.5 py-0.5 rounded-full">✓</span>
+                תוצאות
               </h2>
 
               <div className="bg-gradient-to-br from-indigo-500/20 to-indigo-500/5 border border-indigo-500/30 rounded-2xl p-6 text-center">
@@ -315,6 +254,67 @@ export default function CalculatorPage() {
                 רוצה לשפר את דמי הניהול שלך? דבר איתנו
               </a>
             </div>
+
+            {/* STEP 3: Parameters — second in DOM = left column in RTL */}
+            <div className="space-y-4">
+              <h2 className="text-white font-semibold flex items-center gap-2">
+                <span className="bg-indigo-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">3</span>
+                פרמטרי חיסכון
+              </h2>
+
+              <div className="bg-surface-2 rounded-2xl border border-white/5 p-6 space-y-5">
+
+                <div>
+                  <label className="text-text-secondary text-sm block mb-2">הפקדה חודשית</label>
+                  <div className="flex items-center gap-3" dir="ltr">
+                    <span className="text-white font-bold text-sm w-24">₪{monthly.toLocaleString()}</span>
+                    <input type="range" min={500} max={15000} step={100} value={monthly}
+                      onChange={(e) => setMonthly(+e.target.value)} className="flex-1 accent-indigo-500" />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="text-text-secondary text-sm block mb-2">תקופת חיסכון</label>
+                  <div className="flex items-center gap-3" dir="ltr">
+                    <span className="text-white font-bold text-sm w-24">{years} שנים</span>
+                    <input type="range" min={5} max={40} step={1} value={years}
+                      onChange={(e) => setYears(+e.target.value)} className="flex-1 accent-indigo-500" />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="text-text-secondary text-sm block mb-2">תשואה שנתית משוערת</label>
+                  <div className="flex items-center gap-3" dir="ltr">
+                    <span className="text-white font-bold text-sm w-24">{returnRate}%</span>
+                    <input type="range" min={1} max={15} step={0.5} value={returnRate}
+                      onChange={(e) => setReturnRate(+e.target.value)} className="flex-1 accent-emerald-500" />
+                  </div>
+                </div>
+
+                {/* Fee breakdown */}
+                <div className="bg-amber-500/5 border border-amber-500/20 rounded-xl p-4">
+                  <p className="text-amber-400 text-xs font-semibold mb-2">דמי ניהול בפועל — {track.name}</p>
+                  <div className="grid grid-cols-3 gap-2 text-xs mb-2">
+                    <div>
+                      <span className="text-text-muted block mb-0.5">מהפקדה</span>
+                      <span className="text-amber-300 font-bold">{track.feeDeposit}%</span>
+                    </div>
+                    <div>
+                      <span className="text-text-muted block mb-0.5">מהצבירה</span>
+                      <span className="text-amber-300 font-bold">{track.feeBalance}%</span>
+                    </div>
+                    <div>
+                      <span className="text-text-muted block mb-0.5">הוצ׳ ישירות</span>
+                      <span className="text-amber-300 font-bold">{track.directExpenses}%</span>
+                    </div>
+                  </div>
+                  <div className="pt-2 border-t border-amber-500/20 flex justify-between items-center">
+                    <span className="text-text-muted text-xs">עלות שנתית</span>
+                    <span className="text-amber-400 font-bold text-sm">{totalFeeBalance.toFixed(2)}% סה"כ מהצבירה</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* TRACK COMPARISON TABLE */}
@@ -331,11 +331,11 @@ export default function CalculatorPage() {
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-white/8 bg-white/2">
-                    <th className="text-right px-4 py-3 text-text-muted font-medium">מסלול</th>
+                    <th className="px-4 py-3 text-text-muted font-medium">מסלול</th>
                     <th className="text-center px-3 py-3 text-text-muted font-medium">% הפקדה</th>
                     <th className="text-center px-3 py-3 text-text-muted font-medium">% צבירה</th>
                     <th className="text-center px-3 py-3 text-text-muted font-medium">תשואה</th>
-                    <th className="text-left px-4 py-3 text-text-muted font-medium">צבירה סופית</th>
+                    <th className="px-4 py-3 text-text-muted font-medium">צבירה סופית</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -350,8 +350,8 @@ export default function CalculatorPage() {
                           isCurrent ? "bg-indigo-500/10" : "hover:bg-white/3"
                         }`}
                       >
-                        <td className="px-4 py-3 text-right">
-                          <div className="flex items-center gap-2 justify-end">
+                        <td className="px-4 py-3">
+                          <div className="flex items-center gap-2">
                             {isBest && (
                               <span className="text-xs text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-1.5 py-0.5 rounded-full">
                                 מיטבי
@@ -370,7 +370,7 @@ export default function CalculatorPage() {
                         <td className="px-3 py-3 text-center text-amber-400">{t.feeDeposit}%</td>
                         <td className="px-3 py-3 text-center text-amber-300">{t.totalFeeBalance.toFixed(2)}%</td>
                         <td className="px-3 py-3 text-center text-emerald-400">{t.defaultReturn}%</td>
-                        <td className="px-4 py-3 text-left">
+                        <td className="px-4 py-3">
                           <span className={`font-semibold ${isBest ? "text-emerald-400" : isCurrent ? "text-indigo-300" : "text-white"}`}>
                             {formatMoney(t.finalBalance)}
                           </span>
