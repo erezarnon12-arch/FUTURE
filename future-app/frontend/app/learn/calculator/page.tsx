@@ -63,6 +63,16 @@ export default function CalculatorPage() {
 
         <div className="max-w-3xl mx-auto px-6 py-10">
 
+          {/* HERO QUOTE */}
+          <div className="text-center mb-10">
+            <p className="text-2xl font-bold text-white leading-relaxed mb-2">
+              הכסף שלך עובד בשבילך — <span className="text-indigo-400">גם כשאתה ישן.</span>
+            </p>
+            <p className="text-text-secondary text-sm">
+              הבדל של 4% בתשואה שנתית נשמע קטן. לאורך 25 שנה, זה ההבדל בין פרישה נוחה לפרישה ששינה את חייך.
+            </p>
+          </div>
+
           {/* INPUTS */}
           <div className="bg-surface-2 rounded-2xl border border-white/5 p-6 mb-8 space-y-6">
 
