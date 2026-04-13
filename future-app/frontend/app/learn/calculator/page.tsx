@@ -69,7 +69,7 @@ export default function CalculatorPage() {
               הכסף שלך עובד בשבילך — <span className="text-indigo-400">גם כשאתה ישן.</span>
             </p>
             <p className="text-text-secondary text-sm">
-              הבדל של 4% בתשואה שנתית נשמע קטן. לאורך 25 שנה, זה ההבדל בין פרישה נוחה לפרישה ששינה את חייך.
+              הבדל של 4% בתשואה שנתית נשמע קטן. לאורך 25 שנה, זה ההבדל בין פרישה נוחה לפרישה ששינתה את חייך.
             </p>
           </div>
 
@@ -114,11 +114,14 @@ export default function CalculatorPage() {
           </div>
 
           {/* TRACK SELECTORS */}
-          <div className="grid grid-cols-2 gap-4 mb-8">
+          <div className="grid grid-cols-2 gap-6 mb-8">
 
             {/* Track A */}
-            <div>
-              <p className="text-text-muted text-xs mb-2 text-center">המסלול הנוכחי שלי</p>
+            <div className="bg-surface-2 border border-white/8 rounded-2xl p-4">
+              <div className="mb-4 pb-3 border-b border-white/8 text-center">
+                <p className="text-white font-semibold text-sm">המסלול הנוכחי שלי</p>
+                <p className="text-text-muted text-xs mt-0.5">איפה הכסף שלך יושב היום</p>
+              </div>
               <div className="space-y-2">
                 {TRACKS.map((t) => (
                   <button
@@ -129,7 +132,7 @@ export default function CalculatorPage() {
                       trackA === t.id
                         ? `${t.bg} ${t.border} ${t.color}`
                         : t.id === trackB
-                        ? "opacity-25 cursor-not-allowed border-white/5 text-text-muted"
+                        ? "opacity-20 cursor-not-allowed border-white/5 text-text-muted"
                         : "border-white/5 text-text-secondary hover:bg-white/5 hover:text-white"
                     }`}
                   >
@@ -141,8 +144,11 @@ export default function CalculatorPage() {
             </div>
 
             {/* Track B */}
-            <div>
-              <p className="text-text-muted text-xs mb-2 text-center">מסלול אחר לבדיקה</p>
+            <div className="bg-surface-2 border border-indigo-500/20 rounded-2xl p-4">
+              <div className="mb-4 pb-3 border-b border-indigo-500/15 text-center">
+                <p className="text-indigo-300 font-semibold text-sm">מסלול לבדיקה</p>
+                <p className="text-text-muted text-xs mt-0.5">מה יכול היה לקרות</p>
+              </div>
               <div className="space-y-2">
                 {TRACKS.map((t) => (
                   <button
@@ -153,7 +159,7 @@ export default function CalculatorPage() {
                       trackB === t.id
                         ? `${t.bg} ${t.border} ${t.color}`
                         : t.id === trackA
-                        ? "opacity-25 cursor-not-allowed border-white/5 text-text-muted"
+                        ? "opacity-20 cursor-not-allowed border-white/5 text-text-muted"
                         : "border-white/5 text-text-secondary hover:bg-white/5 hover:text-white"
                     }`}
                   >
